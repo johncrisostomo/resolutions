@@ -22,7 +22,11 @@ export default class ResolutionsWrapper extends TrackerReact(React.Component) {
         <h1>My Resolutions</h1>
         <ResolutionsForm />
         <div>
-          <ResolutionSingle resolution={res[0]} />
+          <ul className="resolutions">
+            {this.resolutions().map((resolution) => {
+              return <ResolutionSingle key={resolution._id} resolution={resolution} />
+            })}
+          </ul>
         </div>
       </div>
     )
